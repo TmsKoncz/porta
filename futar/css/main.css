@@ -1,0 +1,150 @@
+@font-face {
+    font-family: 'Frutiger';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Frutiger'), url('../fonts/Frutiger.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Frutiger Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Frutiger Bold'), url('../fonts/Frutiger_bold.woff') format('woff');
+}
+* {
+    /*margin: 0;
+    padding: 0;*/
+}
+h1{
+    margin: 0;
+    padding:0;
+}
+
+body {
+    color: #f2f2f2;
+    font-family: Frutiger, Arial, Helvetica;
+    background-color: #2d2d5d;
+}
+#bkklogo {
+  width: 55%;
+    display: inline-block;
+    padding-left: 8%;
+}
+#bkklogocontainer {
+    width: 15%;
+}
+#teszt {
+    color: yellow;
+}
+.indulasjelzo {
+    width: 100%;
+}
+.megallojelzo, .jaratkep {
+    width: 70%;
+}
+#ct05, #ct15, #ct25, #ct35, #ct45, #ct55, #ct65, #ct75, #ct85, #ct95 {
+    width: 3%;
+    padding: 4px;
+}
+#ct04, #ct14, #ct24, #ct34, #ct44, #ct54, #ct64, #ct74, #ct84, #ct94 {
+    width: 1%;
+    padding: 5px;
+}
+#ct00, #ct10, #ct20, #ct30, #ct40, #ct50, #ct60, #ct70, #ct80, #ct90 {
+    width: 6%;
+    text-align: center;
+    padding: 5px;
+    height: 9%;
+}
+#ct03, #ct13, #ct23, #ct33, #ct43, #ct53, #ct63, #ct73, #ct83, #ct93 {
+    width: 6%;
+    text-align: left;
+}
+.jaratszam {
+    width: 100%;
+    height: 74%;
+    text-align: center;
+    line-height: 135%;
+    font-size: 2.5em;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+}
+.sotetsor {
+    background: #2d2d5d;
+}
+.vilagossor {
+    background: #454e99
+}
+#menetrend {
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+}
+#megallonev {
+    font-size: 4em;
+    padding: 10px;
+    padding-left: 0px;
+    height: 55%;
+}
+.alcimsor {
+    font-size: 1.3em;
+    padding: 5px;
+    padding-left: 0px;
+    padding-top: 8px;
+}
+.picialcim {
+    font-size: 0.7em;
+    font-style: italic;
+}
+#ct05, #ct15, #ct25, #ct35, #ct45, #ct55, #ct65, #ct75, #ct85, #ct95 {
+    max-height: 5% !important;
+}
+#clock {
+    font-size: 3em;
+    font-family: "Frutiger Bold";
+    margin-left: 0 auto;
+}
+#elsobal {
+    padding-left: 1%;
+}
+.celallomas {
+    font-size: 2.8em;
+    padding-left: 4%;
+    font-family: "Frutiger Bold";
+    height: 55%;
+}
+#kicsitbal {
+    padding-left: 3%;
+}
+.indulasiido {
+    font-size: 2.8em;
+    text-align: right;
+    font-family: "Frutiger Bold";
+    height: 60%;
+}
+.pontosindul {
+    font-size: 2.0em;
+    height: 35%;
+    padding-right: 15px;
+}
+.csakkozep {
+    text-align: right;
+}
+.megallofix {
+    text-align: center;
+}
+.kicsitfeljebb {
+    height: 76%;
+}
+.jobbrarakom {
+    position: relative;
+    right: -90px;
+}
+/*#ct03, #ct23, #ct43, #ct63, #ct83 {
+    background: #454e99;
+}
+
+#ct13, #ct33, #ct53, #ct73, #ct93 {
+    background: #2d2d5d;
+}*/
