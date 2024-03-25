@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<meta http-equiv="expires" content="Fri,31 Dec 2010 11:59:59 GMT"><meta http-equiv="cache-control" content="no-cache"><title>BKV Futár v1.5 (Custom)</title>
+<link href="./css/main.css" rel="stylesheet">
+<link rel="icon" href="https://bkk.hu/static/cache/web/bkk/favicon.ico" type="image/x-icon/">
+<link rel="shortcut" icon="" href="https://bkk.hu/static/cache/web/bkk/favicon.ico" type="image/x-icon/">
+    </head><body onload="dataRefresh()">
+    <table id="menetrend">
+        <tbody><tr id="cimsor" class="sotetsor">
+            <td id="bkklogocontainer" colspan="2">
+                <a href="javascript:void(0)" id="teszt" onclick="dataRefresh();"><img src="./assets/img/bkklogo.png" id="bkklogo" alt="bkklogo"></a>
+            </td>
+            <td colspan="2">
+                <h1 id="megallonev">Batthyány Ilona utca</h1>
+            </td>
+            <td colspan="2">
+                <span id="clock">17:18</span>
+            </td>
+        </tr>
+        <tr class="vilagossor">
+            <td colspan="2" class="alcimsor" id="elsobal">
+                Vonal<br>
+                <span class="picialcim">Line</span>
+            </td>
+            <td class="alcimsor" id="kicsitbal">
+                Célállomás<br>
+                <span class="picialcim">Destination</span>
+            </td>
+            <td class="alcimsor">
+                Indul<br>
+                <span class="picialcim">Departs</span>
+            </td>
+            <td class="alcimsor">
+                (perc)<br>
+                <span class="picialcim">(min)</span>
+            </td>
+            <td class="alcimsor">
+                Kijárat<br>
+                <span class="picialcim">Exit</span>
+            </td>
+        </tr>
+    <tr class="sotetsor"><td id="ct00"><img class="jaratkep" alt="jaratkep" src="./assets/img/bus.png"></td><td id="ct01"><div class="jaratszam" style="background-color:#009EE3;color:#FFFFFF;">45</div></td><td id="ct02"><div class="celallomas">Cinkota, Lassú utca</div></td><td id="ct03"><div class="pontosindul">17:23</div></td><td id="ct04"><div class="indulasiido">5'</div></td><td id="ct05">&nbsp;</td></tr><tr class="vilagossor"><td id="ct10"><img class="jaratkep" alt="jaratkep" src="./assets/img/bus.png"></td><td id="ct11"><div class="jaratszam" style="background-color:#009EE3;color:#FFFFFF;">92</div></td><td id="ct12"><div class="celallomas">Kistarcsa, kórház H</div></td><td id="ct13"><div class="pontosindul">17:24</div></td><td id="ct14"><div class="indulasiido">6'</div></td><td id="ct15">&nbsp;</td></tr><tr class="sotetsor"><td id="ct20"><img class="jaratkep" alt="jaratkep" src="./assets/img/bus.png"></td><td id="ct21"><div class="jaratszam" style="background-color:#009EE3;color:#FFFFFF;">45</div></td><td id="ct22"><div class="celallomas">Cinkota, Lassú utca</div></td><td id="ct23"><div class="pontosindul">17:33</div></td><td id="ct24"><div class="indulasiido">14'</div></td><td id="ct25">&nbsp;</td></tr><tr class="vilagossor"><td id="ct30"><img class="jaratkep" alt="jaratkep" src="./assets/img/bus.png"></td><td id="ct31"><div class="jaratszam" style="background-color:#009EE3;color:#FFFFFF;">92</div></td><td id="ct32"><div class="celallomas">Kistarcsa, kórház H</div></td><td id="ct33"><div class="pontosindul">17:37</div></td><td id="ct34"><div class="indulasiido">18'</div></td><td id="ct35">&nbsp;</td></tr><tr class="sotetsor"><td id="ct40"><img class="jaratkep" alt="jaratkep" src="./assets/img/bus.png"></td><td id="ct41"><div class="jaratszam" style="background-color:#009EE3;color:#FFFFFF;">45</div></td><td id="ct42"><div class="celallomas">Cinkota, Lassú utca</div></td><td id="ct43"><div class="pontosindul">17:43</div></td><td id="ct44"><div class="indulasiido">24'</div></td><td id="ct45">&nbsp;</td></tr><tr class="vilagossor"><td id="ct50"><img class="jaratkep" alt="jaratkep" src="./assets/img/bus.png"></td><td id="ct51"><div class="jaratszam" style="background-color:#009EE3;color:#FFFFFF;">92</div></td><td id="ct52"><div class="celallomas">Kistarcsa, kórház H</div></td><td id="ct53"><div class="pontosindul">17:51</div></td><td id="ct54"><div class="indulasiido">32'</div></td><td id="ct55">&nbsp;</td></tr><tr class="sotetsor"><td id="ct60"><img class="jaratkep" alt="jaratkep" src="./assets/img/bus.png"></td><td id="ct61"><div class="jaratszam" style="background-color:#009EE3;color:#FFFFFF;">45</div></td><td id="ct62"><div class="celallomas">Cinkota, Lassú utca</div></td><td id="ct63"><div class="pontosindul">17:52</div></td><td id="ct64"><div class="indulasiido">33'</div></td><td id="ct65">&nbsp;</td></tr><tr class="vilagossor"><td id="ct70"><img class="jaratkep" alt="jaratkep" src="./assets/img/bus.png"></td><td id="ct71"><div class="jaratszam" style="background-color:#009EE3;color:#FFFFFF;">45</div></td><td id="ct72"><div class="celallomas">Cinkota, Lassú utca</div></td><td id="ct73"><div class="pontosindul">18:01</div></td><td id="ct74"><div class="indulasiido">42'</div></td><td id="ct75">&nbsp;</td></tr><tr class="sotetsor"><td id="ct80"><img class="jaratkep" alt="jaratkep" src="./assets/img/bus.png"></td><td id="ct81"><div class="jaratszam" style="background-color:#009EE3;color:#FFFFFF;">92</div></td><td id="ct82"><div class="celallomas">Kistarcsa, kórház H</div></td><td id="ct83"><div class="pontosindul">18:04</div></td><td id="ct84"><div class="indulasiido">45'</div></td><td id="ct85">&nbsp;</td></tr><script type="text/javascript" src="./js/scripts.js"></script><script type="text/javascript" src="./js/jquery.min.js"></script><input type="hidden" value="BKK_F03329" name="stopID" id="stopID"></tbody></table>
+</body></html>
