@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial;
+  color: white;
+  max-width: 100%;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-color: white;
+}
+
+.right {
+  right: 0;
+  background-color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+embed{
+   display: block;  /* iframes are inline by default */
+   height: 100vh;  /* Set height to 100% of the viewport height */
+   width: 50vw;  /* Set width to 100% of the viewport width */
+   border: none; /* Remove default border */
+   background: black; /* Just for styling */
+   overflow: hidden !important;
+   pointer-events:none;
+    }
+
+header{
+   display: block;  /* iframes are inline by default */
+   height: 20vh;  /* Set height to 100% of the viewport height */
+   width: 50vw;  /* Set width to 100% of the viewport width */
+   border: none; /* Remove default border */
+   background: black; /* Just for styling */
+   overflow: hidden !important; 
+</style>
+<script>
+   var embed = document.getElementById("embed");
+   iframe.width = iframe.contentWindow.document.body.scrollWidth;
+   iframe.height = iframe.contentWindow.document.body.scrollHeight;
+</script>
+</head>
+<body>
+
+<div class="split left">
+  <div class="centered">
+	<div class="header">
+<img src="header.png" width="660" height="200">
+	</div>
+<embed id="embed" type="text/html" style="border: 0" src="http://www.szag.hu/weboldal/iskolai/terem/erzsi.php" width="660" height="500" scrolling="no" scroll="no" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'>
+  </div>
+</div>
+
+<div class="split right">
+  <div class="centered">
+<embed id="embed" type="text/html" src="https://futar.sznokarecords.com/?stopID=BKK_F03329" width="660" height="700" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'>
+  </div>
+</div>
+     
+</body>
+</html> 
