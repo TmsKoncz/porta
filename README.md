@@ -8,4 +8,4 @@ Beüzemelési útmutató
 ------------------------
 
 Készítette: Koncz Tamás, 2024
-Felhasznált keretrendszerek: Takáts Botond tanár úr "erzsi" generátora; futar.sznokarecords.com - BKK FUTÁR-adatok
+Felhasznált keretrendszerek: Takáts Botond tanár úr "erzsi"-je; futar.sznokarecords.com - BKK FUTÁR-adatok
