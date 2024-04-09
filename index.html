@@ -32,7 +32,27 @@ refreshAt(12,25,0);
 refreshAt(14,25,0);
     
 // https://jsfiddle.net/zEG4g/1/
-    
+
+// Egyes billentyűk lenyomására frissüljön le az oldal
+document.addEventListener('keyup', function(e){
+  if(e.keyCode == 9)
+    window.location.reload();
+  if(e.keyCode == 13)
+    window.location.reload();
+  if(e.keyCode == 13)
+    window.location.reload();
+  if(e.keyCode == 16)
+    window.location.reload();
+  if(e.keyCode == 32)
+    window.location.reload();
+  if(e.keyCode == 70)
+    window.location.reload();
+  if(e.keyCode == 82)
+    window.location.reload();
+  if(e.keyCode == 85)
+    window.location.reload();
+})
+
 </script>
 <style>
 body {
