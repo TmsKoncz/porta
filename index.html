@@ -4,6 +4,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SZAG információs TV-4 - porta</title>
 <script>
+// Egér elrejtése mert az olyan igénytelen hogy nagyon
+document.body.style.cursor = 'none';
+
 function refreshAt(hours, minutes, seconds) {
     var now = new Date();
     var then = new Date();
@@ -21,7 +24,7 @@ function refreshAt(hours, minutes, seconds) {
     setTimeout(function() { window.location.reload(true); }, timeout);
 }
 
-//refresh the page at certain times
+// Oldal lefrissítése az alábbi időpontokban - új időpontnál figyeljünk, hogy órán legyen, mert szünetben gagyi
 refreshAt(06,25,0);
 refreshAt(08,25,0);
 refreshAt(10,25,0);
@@ -40,6 +43,7 @@ body {
   width: 100%;
   height: 100%;
   cursor: none;
+  overflow: hidden;
 }
 
 
@@ -48,7 +52,7 @@ center {
   margin-left: 0%;
   margin-right: 0%;
   width: 100%;
-
+  cursor: none;
 }
 
 .split {
@@ -58,16 +62,19 @@ center {
   z-index: 1;
   top: 0;
   overflow-x: hidden;
+  cursor: none;
 }
 
 .left {
   left: 0;
   background-color: white;
+  cursor: none;
 }
 
 .right {
   right: 0;
   background-color: white;
+  cursor: none;
 }
 
 .centered {
@@ -76,6 +83,7 @@ center {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  cursor: none;
 }
 
 embed{
@@ -86,6 +94,7 @@ embed{
    background: black; /* Just for styling */
    overflow: hidden !important;
    pointer-events:none;
+    cursor: none;
     }
 
 havaria{
@@ -96,8 +105,8 @@ havaria{
    background: black; /* Just for styling */
    overflow: hidden !important;
    pointer-events:none;
+  cursor: none;
     }
-
 
 header{
    display: block;  /* iframes are inline by default */
@@ -105,7 +114,10 @@ header{
    width: 50vw;  /* Set width to 100% of the viewport width */
    border: none; /* Remove default border */
    background: black; /* Just for styling */
-   overflow: hidden !important; 
+   overflow: hidden !important;
+  cursor: none;
+    }
+    
 </style>
 <script>
    var embed = document.getElementById("embed");
