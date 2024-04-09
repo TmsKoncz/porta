@@ -23,6 +23,9 @@ function refreshAt(hours, minutes, seconds) {
 
 //refresh the page at 23:00:00
 refreshAt(01,00,0);
+    
+// https://jsfiddle.net/zEG4g/1/
+    
 </script>
 <style>
 body {
@@ -80,7 +83,7 @@ embed{
    overflow: hidden !important;
    pointer-events:none;
     }
-/*
+
 havaria{
    display: block;  /* iframes are inline by default */
    height: 100vh;  /* Set height to 100% of the viewport height */
@@ -90,7 +93,7 @@ havaria{
    overflow: hidden !important;
    pointer-events:none;
     }
-*/
+
 
 header{
    display: block;  /* iframes are inline by default */
@@ -109,8 +112,9 @@ header{
 <body>
 
 <div class="split left">
-  <div class="centered">
-<!-- <embed id="embed" type="text/html" style="border: 0" src="http://www.szag.hu/weboldal/iskolai/terem/erzsi.php" width="660" height="700" scrolling="no" scroll="no" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'> --!>
+<!--  <div class="centered" id="erzsi" style="display: hide">
+      <embed id="embed" type="text/html" style="border: 0" src="http://www.szag.hu/weboldal/iskolai/terem/erzsi.php" width="660" height="700" scrolling="no" scroll="no" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'> --!> 
+	
 	<div id="havaria">
 		<img src="havaria.png" alt="Havária kép png" scrolling="no"  width="800vw" height="896vh">
 	</div>
