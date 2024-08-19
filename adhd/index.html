@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<!-- Live.js tag hogy lefrissüljön ha belenyúlok a htmlbe-->
+<script type="text/javascript" src="https://livejs.com/live.js"></script>
+<title>SZAG infoTV4 - porta</title>
+<script>
+/* Egér elrejtése mert az olyan igénytelen hogy nagyon */
+document.body.style.cursor = 'none';
+
+function refreshAt(hours, minutes, seconds) {
+    var now = new Date();
+    var then = new Date();
+
+    if(now.getHours() > hours ||
+        (now.getHours() == hours && now.getMinutes() > minutes) ||
+        now.getHours() == hours && now.getMinutes() == minutes && now.getSeconds() >= seconds) {
+        then.setDate(now.getDate() + 1);
+    }
+    then.setHours(hours);
+    then.setMinutes(minutes);
+    then.setSeconds(seconds);
+
+    var timeout = (then.getTime() - now.getTime());
+    setTimeout(function() { window.location.reload(true); }, timeout);
+}
+
+// Oldal lefrissítése az alábbi időpontokban - új időpontnál figyeljünk, hogy órán legyen, mert szünetben gagyi
+refreshAt(06,25,56);
+refreshAt(08,25,56);
+refreshAt(10,25,56);
+refreshAt(12,25,56);
+refreshAt(14,25,56);
+    
+// https://jsfiddle.net/zEG4g/1/
+
+// Egyes billentyűk lenyomására frissüljön le az oldal
+document.addEventListener('keyup', function(e){
+  if(e.keyCode == 9)
+    window.location.reload();
+  if(e.keyCode == 13)
+    window.location.reload();
+  if(e.keyCode == 13)
+    window.location.reload();
+  if(e.keyCode == 16)
+    window.location.reload();
+  if(e.keyCode == 32)
+    window.location.reload();
+  if(e.keyCode == 70)
+    window.location.reload();
+  if(e.keyCode == 82)
+    window.location.reload();
+  if(e.keyCode == 85)
+    window.location.reload();
+})
+
+</script>
+<style>
+
+body {
+  font-family: Arial;
+  color: white;
+  max-width: 100%;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  cursor: none;
+  overflow: hidden;
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+center {
+  display: block;
+  margin-left: 0%;
+  margin-right: 0%;
+  width: 100%;
+  cursor: none;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+.left {
+  left: 0;
+  background-color: white;
+  cursor: none;
+}
+
+.right {
+  right: 0;
+  background-color: white;
+  cursor: none;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  cursor: none;
+}
+
+embed{
+   display: block;  /* iframes are inline by default */
+   height: 100vh;  /* Set height to 100% of the viewport height */
+   width: 50vw;  /* Set width to 100% of the viewport width */
+   border: none; /* Remove default border */
+   background: black; /* Just for styling */
+   overflow: hidden !important;
+   pointer-events:none;
+    cursor: none;
+    }
+
+havaria{
+   display: block;  /* iframes are inline by default */
+   height: 100vh;  /* Set height to 100% of the viewport height */
+   width: 50vw;  /* Set width to 100% of the viewport width */
+   border: none; /* Remove default border */
+   background: black; /* Just for styling */
+   overflow: hidden !important;
+   pointer-events:none;
+  cursor: none;
+    }
+
+header{
+   display: block;  /* iframes are inline by default */
+   height: 20vh;  /* Set height to 100% of the viewport height */
+   width: 50vw;  /* Set width to 100% of the viewport width */
+   border: none; /* Remove default border */
+   background: black; /* Just for styling */
+   overflow: hidden !important;
+  cursor: none;
+    }
+    
+</style>
+<script>
+   var embed = document.getElementById("embed");
+   iframe.width = iframe.contentWindow.document.body.scrollWidth;
+   iframe.height = iframe.contentWindow.document.body.scrollHeight;
+</script>
+</head>
+<body>
+
+<div class="split left">
+    <div class="centered">
+        
+        <div id="id="erzsi" style="display: hide">
+               <embed id="embed" type="text/html" style="border: 0" src="http://www.szag.hu/weboldal/iskolai/terem/erzsi.php" width="660" height="700" scrolling="no" scroll="no" onload="javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));">
+            </div>
+	       
+        <!-- <div id="havaria" style="display: hide">
+		        <img src="sportnap.png" alt="Havária kép png" scrolling="no"  width="830vw" height="965vh">
+	       </div> -->
+     </div>
+</div>
+
+<div class="split right">
+  <div class="center">
+<embed id="embed" type="text/html" src="https://futar.sznokarecords.com/?stopID=BKK_F03329" width="660" height="700" onload='javascript:(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+"px";}(this));'>
+  </div>
+</div>
+     
+</body>
+</html> 
