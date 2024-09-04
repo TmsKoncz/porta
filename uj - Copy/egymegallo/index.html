@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Info Screen - BKK Departures</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        #header h2 {
+            font-size: 1.5em;
+            margin: 0;
+            color: #666;
+        }
+        #time {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #999;
+        }
+        #departures {
+            width: 100%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .departure {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .departure:last-child {
+            border-bottom: none;
+        }
+        .line {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #0077cc;
+        }
+        .destination {
+            flex-grow: 1;
+            margin-left: 15px;
+        }
+        .time {
+            font-size: 1.2em;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Batthyány Ilona utca</h1>
+        <h2>Upcoming BKK Departures</h2>
+        <div id="time"></div>
+    </div>
+    <div id="departures">
+        <!-- Departures will be populated here by JavaScript -->
+    </div>
+
+    <script>
+        // Function to fetch and display real-time departures
+        async function fetchDepartures() {
+            // Example BKK FUTÁR API endpoint (you need an actual API key and valid stop ID)
+            const url = 'https://futar.bkk.hu/api/query/v1/ws/otp/api/where/arrivals-and-departures-for-stop.json?stopId=BKK_F01234&minutesBefore=0&minutesAfter=20';
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                // Extract relevant departure information
+                const departures = data.data.entry.stopTimes.map(departure => ({
+                    line: departure.routeId,
+                    destination: departure.headsign,
+                    time: new Date(departure.expectedArrivalTime * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                }));
+
+                displayDepartures(departures);
+            } catch (error) {
+                console.error('Error fetching departures:', error);
+            }
+        }
+
+        // Function to display the departures on the screen
+        function displayDepartures(departures) {
+            const departuresContainer = document.getElementById('departures');
+            departuresContainer.innerHTML = '';
+
+            departures.forEach(departure => {
+                const departureDiv = document.createElement('div');
+                departureDiv.className = 'departure';
+
+                departureDiv.innerHTML = `
+                    <div class="line">${departure.line}</div>
+                    <div class="destination">${departure.destination}</div>
+                    <div class="time">${departure.time}</div>
+                `;
+
+                departuresContainer.appendChild(departureDiv);
+            });
+        }
+
+        // Function to update the time display
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('time').innerText = `Current time: ${timeStr}`;
+        }
+
+        // Initial fetch and update every minute
+        fetchDepartures();
+        updateTime();
+        setInterval(fetchDepartures, 60000); // Update departures every minute
+        setInterval(updateTime, 1000); // Update time every second
+    </script>
+</body>
+</html>

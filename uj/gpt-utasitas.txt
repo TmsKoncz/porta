@@ -1,0 +1,1025 @@
+I would like you to generate an html-css-js based information screen of the departures of my school's surrounding bus and suburban railway stops.
+The title should have /img/bkklogo.png on the upper left corner, "Közeli indulások" in the middle as title, and the current time in the upper right corner.
+
+I have four stops I want to include, and the website can use the following url, including the API key to fetch data from the BKK FUTÁR API.
+
+https://futar.bkk.hu/api/query/v1/ws/otp/api/where/arrivals-and-departures-for-stop?minutesBefore=2&minutesAfter=30&stopId=BKK_F03329&stopId=BKK_F03328&stopId=BKK_F03327&stopId=BKK_19841&key=68088f76-5374-4d52-9342-faea8ae0d33e
+
+The data fetched from the URL I sent looks like this:
+{
+  "currentTime": 1725476577166,
+  "version": 2,
+  "status": "OK",
+  "code": 200,
+  "text": "OK",
+  "data": {
+    "limitExceeded": false,
+    "entry": {
+      "stopId": "BKK_F03329",
+      "routeIds": [
+        "BKK_H8",
+        "BKK_0450",
+        "BKK_0460",
+        "BKK_0920",
+        "BKK_0921",
+        "BKK_1460",
+        "volan_480",
+        "BKK_9080",
+        "BKK_9081",
+        "BKK_9920"
+      ],
+      "alertIds": [],
+      "nearbyStopIds": [],
+      "stopTimes": [
+        {
+          "stopId": "volan_607664",
+          "stopHeadsign": "Budapest, Cinkota HÉV-állomás",
+          "arrivalTime": 1725476580,
+          "departureTime": 1725476580,
+          "predictedArrivalTime": 1725476497,
+          "predictedDepartureTime": 1725476535,
+          "stopSequence": 12,
+          "tripId": "volan_2109_115_20240901",
+          "serviceDate": "20240904",
+          "wheelchairAccessible": false,
+          "mayRequireBooking": false,
+          "canceled": false,
+          "alertIds": []
+        },
+        {
+          "stopId": "BKK_F03328",
+          "stopHeadsign": "Cinkota, Lassú utca",
+          "arrivalTime": 1725476820,
+          "departureTime": 1725476820,
+          "predictedArrivalTime": 1725476811,
+          "predictedDepartureTime": 1725476811,
+          "stopSequence": 19,
+          "tripId": "BKK_C852761785",
+          "serviceDate": "20240904",
+          "wheelchairAccessible": true,
+          "mayRequireBooking": false,
+          "canceled": false,
+          "alertIds": []
+        },
+        {
+          "stopId": "BKK_F03329",
+          "stopHeadsign": "Cinkota, Lassú utca",
+          "arrivalTime": 1725476880,
+          "departureTime": 1725476880,
+          "predictedArrivalTime": 1725476871,
+          "predictedDepartureTime": 1725476871,
+          "stopSequence": 20,
+          "tripId": "BKK_C852761785",
+          "serviceDate": "20240904",
+          "wheelchairAccessible": true,
+          "mayRequireBooking": false,
+          "canceled": false,
+          "alertIds": []
+        },
+        {
+          "stopId": "BKK_19841303",
+          "stopHeadsign": "Cinkota (- Örs vezér tere)",
+          "arrivalTime": 1725476820,
+          "departureTime": 1725476820,
+          "predictedArrivalTime": 1725476940,
+          "predictedDepartureTime": 1725476940,
+          "stopSequence": 12,
+          "tripId": "BKK_H123111_40",
+          "serviceDate": "20240904",
+          "wheelchairAccessible": false,
+          "mayRequireBooking": false,
+          "canceled": false,
+          "alertIds": []
+        },
+        {
+          "stopId": "BKK_F03327",
+          "stopHeadsign": "Újpalota, Nyírpalota út",
+          "arrivalTime": 1725477120,
+          "departureTime": 1725477120,
+          "predictedArrivalTime": 1725477109,
+          "predictedDepartureTime": 1725477109,
+          "stopSequence": 19,
+          "tripId": "BKK_C86487684",
+          "serviceDate": "20240904",
+          "wheelchairAccessible": true,
+          "mayRequireBooking": false,
+          "canceled": false,
+          "alertIds": []
+        },
+        {
+          "stopId": "BKK_F03327",
+          "stopHeadsign": "Örs vezér tere M+H",
+          "arrivalTime": 1725477210,
+          "departureTime": 1725477210,
+          "stopSequence": 1,
+          "tripId": "BKK_C852761787",
+          "serviceDate": "20240904",
+          "wheelchairAccessible": true,
+          "mayRequireBooking": false,
+          "canceled": false,
+          "alertIds": []
+        },
+        {
+          "stopId": "BKK_F03328",
+          "stopHeadsign": "Kistarcsa, kórház H ► Auchan Liget",
+          "arrivalTime": 1725477480,
+          "departureTime": 1725477480,
+          "predictedArrivalTime": 1725477480,
+          "predictedDepartureTime": 1725477480,
+          "stopSequence": 18,
+          "tripId": "BKK_C801591198",
+          "serviceDate": "20240904",
+          "wheelchairAccessible": true,
+          "mayRequireBooking": false,
+          "canceled": false,
+          "alertIds": []
+        },
+        {
+          "stopId": "BKK_F03329",
+          "stopHeadsign": "Kistarcsa, kórház H ► Auchan Liget",
+          "arrivalTime": 1725477540,
+          "departureTime": 1725477540,
+          "predictedArrivalTime": 1725477540,
+          "predictedDepartureTime": 1725477540,
+          "stopSequence": 19,
+          "tripId": "BKK_C801591198",
+          "serviceDate": "20240904",
+          "wheelchairAccessible": true,
+          "mayRequireBooking": false,
+          "canceled": false,
+          "alertIds": []
+        },
+        {
+          "stopId": "BKK_19841302",
+          "stopHeadsign": "Gödöllő",
+          "arrivalTime": 1725477540,
+          "departureTime": 1725477540,
+          "stopSequence": 9,
+          "tripId": "BKK_H106815_37",
+          "serviceDate": "20240904",
+          "wheelchairAccessible": false,
+          "mayRequireBooking": false,
+          "canceled": false,
+          "alertIds": []
+        },
+        {
+          "stopId": "BKK_F03328",
+          "stopHeadsign": "Helikopter lakópark",
+          "arrivalTime": 1725477720,
+          "departureTime": 1725477720,
+          "predictedArrivalTime": 1725477714,
+          "predictedDepartureTime": 1725477714,
+          "stopSequence": 31,
+          "tripId": "BKK_C86487787",
+          "serviceDate": "20240904",
+          "wheelchairAccessible": true,
+          "mayRequireBooking": false,
+          "canceled": false,
+          "alertIds": []
+        },
+        {
+          "stopId": "BKK_F03328",
+          "stopHeadsign": "Cinkota, Lassú utca",
+          "arrivalTime": 1725477900,
+          "departureTime": 1725477900,
+          "stopSequence": 19,
+          "tripId": "BKK_C852761788",
+          "serviceDate": "20240904",
+          "wheelchairAccessible": true,
+          "mayRequireBooking": false,
+          "canceled": false,
+          "alertIds": []
+        },
+        {
+          "stopId": "BKK_F03329",
+          "stopHeadsign": "Cinkota, Lassú utca",
+          "arrivalTime": 1725477960,
+          "departureTime": 1725477960,
+          "stopSequence": 20,
+          "tripId": "BKK_C852761788",
+          "serviceDate": "20240904",
+          "wheelchairAccessible": true,
+          "mayRequireBooking": false,
+          "canceled": false,
+          "alertIds": []
+        },
+        {
+          "stopId": "BKK_F03327",
+          "stopHeadsign": "Örs vezér tere M+H",
+          "arrivalTime": 1725478290,
+          "departureTime": 1725478290,
+          "stopSequence": 1,
+          "tripId": "BKK_C852761790",
+          "serviceDate": "20240904",
+          "wheelchairAccessible": true,
+          "mayRequireBooking": false,
+          "canceled": false,
+          "alertIds": []
+        }
+      ]
+    },
+    "references": {
+      "agencies": {
+        "BKK_BKK": {
+          "id": "BKK_BKK",
+          "name": "BKK",
+          "url": "http://www.bkk.hu",
+          "timezone": "Europe/Budapest",
+          "lang": "hu",
+          "phone": "+36 1 3 255 255"
+        },
+        "volan_volan": {
+          "id": "volan_volan",
+          "name": "Volánbusz Zrt.",
+          "url": "volanbusz.hu",
+          "timezone": "Europe/Budapest"
+        },
+        "BKK_HEV": {
+          "id": "BKK_HEV",
+          "name": "MÁV-HÉV",
+          "url": "https://www.mav-hev.hu",
+          "timezone": "Europe/Budapest",
+          "lang": "hu",
+          "phone": "+36 1 511 4040"
+        }
+      },
+      "routes": {
+        "BKK_0921": {
+          "id": "BKK_0921",
+          "shortName": "92A",
+          "description": "Kistarcsa, kórház H | Rákosszentmihály vasútáll.",
+          "type": "BUS",
+          "color": "009EE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK_BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "92A",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009EE3",
+            "icon": {
+              "type": "BOX",
+              "text": "92A",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus",
+              "color": "009EE3",
+              "secondaryColor": "FFFFFF"
+            },
+            "groupId": 8
+          },
+          "sortOrder": 226
+        },
+        "BKK_0920": {
+          "id": "BKK_0920",
+          "shortName": "92",
+          "description": "Kistarcsa - Auchan Liget | Rákosszentmihály vasútáll.",
+          "type": "BUS",
+          "color": "009EE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK_BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "92",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009EE3",
+            "icon": {
+              "type": "BOX",
+              "text": "92",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus",
+              "color": "009EE3",
+              "secondaryColor": "FFFFFF"
+            },
+            "groupId": 8
+          },
+          "sortOrder": 225
+        },
+        "BKK_9081": {
+          "id": "BKK_9081",
+          "shortName": "908A",
+          "description": "Móricz Zsigmond körtér M | Rákoskeresztúr, városkp.",
+          "type": "BUS",
+          "color": "000000",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK_BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "908A",
+          "bikesAllowed": false,
+          "style": {
+            "color": "000000",
+            "icon": {
+              "type": "BOX",
+              "text": "908A",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "night-bus",
+              "color": "1E1E1E",
+              "secondaryColor": "FFFFFF"
+            },
+            "groupId": 11
+          },
+          "sortOrder": 878
+        },
+        "BKK_1460": {
+          "id": "BKK_1460",
+          "shortName": "146",
+          "description": "Újpalota, Nyírpalota út | Rákoskeresztúr, városkp.",
+          "type": "BUS",
+          "color": "009EE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK_BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "146",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009EE3",
+            "icon": {
+              "type": "BOX",
+              "text": "146",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus",
+              "color": "009EE3",
+              "secondaryColor": "FFFFFF"
+            },
+            "groupId": 8
+          },
+          "sortOrder": 283
+        },
+        "BKK_9080": {
+          "id": "BKK_9080",
+          "shortName": "908",
+          "description": "R.csaba-Újtelep, Tóalmás u. | Móricz Zs. körtér M",
+          "type": "BUS",
+          "color": "000000",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK_BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "908",
+          "bikesAllowed": false,
+          "style": {
+            "color": "000000",
+            "icon": {
+              "type": "BOX",
+              "text": "908",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "night-bus",
+              "color": "1E1E1E",
+              "secondaryColor": "FFFFFF"
+            },
+            "groupId": 11
+          },
+          "sortOrder": 877
+        },
+        "BKK_9920": {
+          "id": "BKK_9920",
+          "shortName": "992",
+          "description": "Gödöllő H | Cinkotai autóbuszgarázs",
+          "type": "BUS",
+          "color": "000000",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK_BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "992",
+          "bikesAllowed": false,
+          "style": {
+            "color": "000000",
+            "icon": {
+              "type": "BOX",
+              "text": "992",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "night-bus",
+              "color": "1E1E1E",
+              "secondaryColor": "FFFFFF"
+            },
+            "groupId": 11
+          },
+          "sortOrder": 915
+        },
+        "BKK_0450": {
+          "id": "BKK_0450",
+          "shortName": "45",
+          "description": "Cinkota, Lassú utca | Örs vezér tere M H",
+          "type": "BUS",
+          "color": "009EE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK_BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "45",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009EE3",
+            "icon": {
+              "type": "BOX",
+              "text": "45",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus",
+              "color": "009EE3",
+              "secondaryColor": "FFFFFF"
+            },
+            "groupId": 8
+          },
+          "sortOrder": 151
+        },
+        "volan_480": {
+          "id": "volan_480",
+          "shortName": "480",
+          "description": "Budapest, Cinkota HÉV-állomás | Budapest, Cinkota HÉV-állomás",
+          "type": "BUS",
+          "color": "F9AB13",
+          "textColor": "000000",
+          "agencyId": "volan_volan",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "480",
+          "bikesAllowed": false,
+          "style": {
+            "color": "F9AB13",
+            "icon": {
+              "type": "BOX",
+              "text": "480",
+              "textColor": "000000"
+            },
+            "vehicleIcon": {
+              "name": "bus",
+              "color": "F9AB13",
+              "secondaryColor": "000000"
+            },
+            "groupId": 100
+          },
+          "sortOrder": 515
+        },
+        "BKK_0460": {
+          "id": "BKK_0460",
+          "shortName": "46",
+          "description": "Helikopter lakópark | Újpalota, Nyírpalota út",
+          "type": "BUS",
+          "color": "009EE3",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK_BKK",
+          "iconDisplayType": "BOX",
+          "iconDisplayText": "46",
+          "bikesAllowed": false,
+          "style": {
+            "color": "009EE3",
+            "icon": {
+              "type": "BOX",
+              "text": "46",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "bus",
+              "color": "009EE3",
+              "secondaryColor": "FFFFFF"
+            },
+            "groupId": 8
+          },
+          "sortOrder": 153
+        },
+        "BKK_H8": {
+          "id": "BKK_H8",
+          "shortName": "H8",
+          "description": "Gödöllő | Örs vezér tere",
+          "type": "RAIL",
+          "color": "ED6E86",
+          "textColor": "FFFFFF",
+          "agencyId": "BKK_HEV",
+          "iconDisplayType": "CIRCLE",
+          "iconDisplayText": "8",
+          "bikesAllowed": false,
+          "style": {
+            "color": "ED6E86",
+            "stop": {
+              "image": "route-icon-H8"
+            },
+            "icon": {
+              "type": "CIRCLE",
+              "text": "8",
+              "textColor": "FFFFFF"
+            },
+            "vehicleIcon": {
+              "name": "suburban-railway"
+            },
+            "groupId": 17
+          },
+          "sortOrder": 7
+        }
+      },
+      "stops": {
+        "BKK_F03329": {
+          "id": "BKK_F03329",
+          "vertex": "BKK:BKK_F03329",
+          "lat": 47.519171,
+          "lon": 19.230258,
+          "name": "Batthyány Ilona utca",
+          "localityName": "1164",
+          "code": "F03329",
+          "direction": "27",
+          "description": "7915",
+          "locationType": 0,
+          "parentStationId": "BKK_CSF03329",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0450",
+            "BKK_0920",
+            "BKK_0921",
+            "BKK_9080"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "000000",
+              "009EE3"
+            ]
+          }
+        },
+        "volan_607664": {
+          "id": "volan_607664",
+          "vertex": "BKK:volan_607664",
+          "lat": 47.518489,
+          "lon": 19.225985,
+          "name": "Budapest, Georgina utca",
+          "localityName": "1164",
+          "code": "607664-F03327",
+          "direction": "-78",
+          "locationType": 0,
+          "locationSubType": "merged",
+          "parentStationId": "STOP_607664-F03327",
+          "type": "COACH",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0450",
+            "BKK_0460",
+            "volan_480",
+            "BKK_9920"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "000000",
+              "009EE3",
+              "F9AB13"
+            ]
+          }
+        },
+        "BKK_19841": {
+          "id": "BKK_19841",
+          "vertex": "BKK:BKK_19841",
+          "lat": 47.526627,
+          "lon": 19.229403,
+          "name": "Ilonatelep",
+          "localityName": "1164",
+          "code": "19841",
+          "direction": "",
+          "locationType": 1,
+          "locationSubType": "station",
+          "parentStationId": "BKK_CS19841",
+          "wheelchairBoarding": false,
+          "routeIds": [
+            "BKK_H8",
+            "BKK_0450",
+            "BKK_0920",
+            "BKK_0921",
+            "BKK_9080",
+            "BKK_9081",
+            "BKK_9920"
+          ],
+          "stopColorType": "H8-BUS",
+          "style": {
+            "colors": [
+              "ED6E86"
+            ],
+            "image": "stop-icon-H8"
+          }
+        },
+        "BKK_CSF03329": {
+          "id": "BKK_CSF03329",
+          "vertex": "BKK:BKK_CSF03329",
+          "lat": 47.519171,
+          "lon": 19.230258,
+          "name": "Batthyány Ilona utca",
+          "localityName": "1164",
+          "code": "CSF03329",
+          "direction": "",
+          "description": "ya`aHe~jtBPDLLHTBXCXITMLQBOCOMGUCYBYFUNMNE",
+          "locationType": 1,
+          "locationSubType": "stop-area",
+          "wheelchairBoarding": false,
+          "routeIds": [],
+          "stopColorType": "OTHER",
+          "style": {
+            "colors": [
+              "000000",
+              "009EE3"
+            ]
+          }
+        },
+        "volan_607663": {
+          "id": "volan_607663",
+          "vertex": "BKK:volan_607663",
+          "lat": 47.51824,
+          "lon": 19.227321,
+          "name": "Budapest, Georgina utca",
+          "localityName": "1164",
+          "code": "607663-F03328",
+          "direction": "86",
+          "locationType": 0,
+          "locationSubType": "merged",
+          "parentStationId": "STOP_607663-F03328",
+          "type": "COACH",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0450",
+            "BKK_0460",
+            "BKK_0920",
+            "BKK_0921",
+            "BKK_1460",
+            "volan_480",
+            "BKK_9080",
+            "BKK_9081",
+            "BKK_9920"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "000000",
+              "009EE3",
+              "F9AB13"
+            ]
+          }
+        },
+        "BKK_19841302": {
+          "id": "BKK_19841302",
+          "vertex": "BKK:BKK_19841",
+          "lat": 47.526627,
+          "lon": 19.229403,
+          "name": "Ilonatelep",
+          "localityName": "1164",
+          "code": "19841",
+          "direction": "",
+          "locationType": 0,
+          "locationSubType": "merged",
+          "parentStationId": "BKK_19841",
+          "type": "SUBURBAN_RAILWAY",
+          "wheelchairBoarding": false,
+          "routeIds": [
+            "BKK_H8"
+          ],
+          "stopColorType": "H8",
+          "style": {
+            "colors": [
+              "ED6E86"
+            ],
+            "image": "stop-icon-H8"
+          }
+        },
+        "BKK_19841303": {
+          "id": "BKK_19841303",
+          "vertex": "BKK:BKK_19841",
+          "lat": 47.526627,
+          "lon": 19.229403,
+          "name": "Ilonatelep",
+          "localityName": "1164",
+          "code": "19841",
+          "direction": "",
+          "locationType": 0,
+          "locationSubType": "merged",
+          "parentStationId": "BKK_19841",
+          "type": "SUBURBAN_RAILWAY",
+          "wheelchairBoarding": false,
+          "routeIds": [
+            "BKK_H8"
+          ],
+          "stopColorType": "H8",
+          "style": {
+            "colors": [
+              "ED6E86"
+            ],
+            "image": "stop-icon-H8"
+          }
+        },
+        "STOP_607664-F03327": {
+          "id": "STOP_607664-F03327",
+          "vertex": "BKK:STOP_607664-F03327",
+          "lat": 47.518489,
+          "lon": 19.225985,
+          "name": "Budapest, Georgina utca",
+          "localityName": "1164",
+          "code": "607664-F03327",
+          "direction": "-78",
+          "locationType": 1,
+          "locationSubType": "stop",
+          "parentStationId": "BKK_CSF03328",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0450",
+            "BKK_0460",
+            "BKK_0920",
+            "BKK_0921",
+            "BKK_1460",
+            "volan_480",
+            "BKK_9080",
+            "BKK_9081",
+            "BKK_9920"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "F9AB13"
+            ]
+          }
+        },
+        "STOP_607663-F03328": {
+          "id": "STOP_607663-F03328",
+          "vertex": "BKK:STOP_607663-F03328",
+          "lat": 47.51824,
+          "lon": 19.227321,
+          "name": "Georgina utca",
+          "localityName": "1164",
+          "code": "607663-F03328",
+          "direction": "86",
+          "description": "7913",
+          "locationType": 1,
+          "locationSubType": "stop",
+          "parentStationId": "BKK_CSF03328",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0450",
+            "BKK_0460",
+            "BKK_0920",
+            "BKK_0921",
+            "BKK_1460",
+            "volan_480",
+            "BKK_9080",
+            "BKK_9081",
+            "BKK_9920"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "000000",
+              "009EE3"
+            ]
+          }
+        },
+        "BKK_CS19841": {
+          "id": "BKK_CS19841",
+          "vertex": "BKK:BKK_CS19841",
+          "lat": 47.525776,
+          "lon": 19.22904,
+          "name": "Ilonatelep",
+          "localityName": "1164",
+          "code": "CS19841",
+          "direction": "",
+          "description": "mdaaHgyjtBNBLLJRBVAXGTMNiF~DOFQCOKsCoDKUEY@[HULOPG~JK",
+          "locationType": 1,
+          "locationSubType": "stop-area",
+          "wheelchairBoarding": false,
+          "routeIds": [],
+          "stopColorType": "OTHER",
+          "style": {
+            "colors": [
+              "000000",
+              "009EE3",
+              "ED6E86"
+            ],
+            "image": "stop-icon-H8"
+          }
+        },
+        "BKK_CSF03328": {
+          "id": "BKK_CSF03328",
+          "vertex": "BKK:BKK_CSF03328",
+          "lat": 47.51824,
+          "lon": 19.227321,
+          "name": "Georgina utca",
+          "localityName": "1164",
+          "code": "CSF03328",
+          "direction": "",
+          "description": "e|_aHy`jtBGVKNQHOCOIKSEY@Yp@kGFUJQPGP@LJJRDVAXq@jG",
+          "locationType": 1,
+          "locationSubType": "stop-area",
+          "wheelchairBoarding": false,
+          "routeIds": [],
+          "stopColorType": "OTHER",
+          "style": {
+            "colors": [
+              "000000",
+              "009EE3",
+              "F9AB13"
+            ]
+          }
+        },
+        "BKK_F03327": {
+          "id": "BKK_F03327",
+          "vertex": "BKK:BKK_F03327",
+          "lat": 47.518489,
+          "lon": 19.225985,
+          "name": "Vidámvásár utca (Georgina utca)",
+          "localityName": "1164",
+          "code": "607664-F03327",
+          "direction": "-78",
+          "description": "7911",
+          "locationType": 0,
+          "locationSubType": "merged",
+          "parentStationId": "STOP_607664-F03327",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0450",
+            "BKK_0460",
+            "volan_480",
+            "BKK_9920"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "000000",
+              "009EE3",
+              "F9AB13"
+            ]
+          }
+        },
+        "BKK_F03328": {
+          "id": "BKK_F03328",
+          "vertex": "BKK:BKK_F03328",
+          "lat": 47.51824,
+          "lon": 19.227321,
+          "name": "Georgina utca",
+          "localityName": "1164",
+          "code": "607663-F03328",
+          "direction": "86",
+          "description": "7913",
+          "locationType": 0,
+          "locationSubType": "merged",
+          "parentStationId": "STOP_607663-F03328",
+          "type": "BUS",
+          "wheelchairBoarding": true,
+          "routeIds": [
+            "BKK_0450",
+            "BKK_0460",
+            "BKK_0920",
+            "BKK_0921",
+            "BKK_1460",
+            "volan_480",
+            "BKK_9080",
+            "BKK_9081",
+            "BKK_9920"
+          ],
+          "stopColorType": "BUS",
+          "style": {
+            "colors": [
+              "000000",
+              "009EE3",
+              "F9AB13"
+            ]
+          }
+        }
+      },
+      "trips": {
+        "BKK_C852761785": {
+          "id": "BKK_C852761785",
+          "routeId": "BKK_0450",
+          "shapeId": "BKK_C852761785",
+          "blockId": "C85276_0450_1_13",
+          "tripHeadsign": "Cinkota, Lassú utca",
+          "serviceId": "BKK_C85276AHCMAA-061",
+          "directionId": "0",
+          "bikesAllowed": false,
+          "wheelchairAccessible": true
+        },
+        "BKK_H123111_40": {
+          "id": "BKK_H123111_40",
+          "routeId": "BKK_H8",
+          "shapeId": "BKK_H123111_40",
+          "tripHeadsign": "Cinkota",
+          "serviceId": "BKK_42905",
+          "directionId": "1",
+          "bikesAllowed": false,
+          "wheelchairAccessible": false
+        },
+        "BKK_H106815_37": {
+          "id": "BKK_H106815_37",
+          "routeId": "BKK_H8",
+          "shapeId": "BKK_H106815_37",
+          "tripHeadsign": "Gödöllő",
+          "serviceId": "BKK_42908",
+          "directionId": "0",
+          "bikesAllowed": false,
+          "wheelchairAccessible": false
+        },
+        "BKK_C86487787": {
+          "id": "BKK_C86487787",
+          "routeId": "BKK_0460",
+          "shapeId": "BKK_C86487787",
+          "blockId": "C86487_0460_8_6",
+          "tripHeadsign": "Helikopter lakópark",
+          "serviceId": "BKK_C86487AHCSZB-011",
+          "directionId": "0",
+          "bikesAllowed": false,
+          "wheelchairAccessible": true
+        },
+        "BKK_C852761788": {
+          "id": "BKK_C852761788",
+          "routeId": "BKK_0450",
+          "shapeId": "BKK_C852761788",
+          "blockId": "C85276_0450_8_13",
+          "tripHeadsign": "Cinkota, Lassú utca",
+          "serviceId": "BKK_C85276AHCMAA-061",
+          "directionId": "0",
+          "bikesAllowed": false,
+          "wheelchairAccessible": true
+        },
+        "volan_2109_115_20240901": {
+          "id": "volan_2109_115_20240901",
+          "routeId": "volan_480",
+          "shapeId": "volan_2109_115_20240901",
+          "tripHeadsign": "Budapest, Cinkota HÉV-állomás",
+          "serviceId": "volan_20240903-20240910-MonTueWedThuFri",
+          "directionId": "0",
+          "bikesAllowed": false,
+          "wheelchairAccessible": false
+        },
+        "BKK_C852761787": {
+          "id": "BKK_C852761787",
+          "routeId": "BKK_0450",
+          "shapeId": "BKK_C852761787",
+          "blockId": "C85276_0450_1_13",
+          "tripHeadsign": "Örs vezér tere M+H",
+          "serviceId": "BKK_C85276AHCMAA-061",
+          "directionId": "1",
+          "bikesAllowed": false,
+          "wheelchairAccessible": true
+        },
+        "BKK_C86487684": {
+          "id": "BKK_C86487684",
+          "routeId": "BKK_0460",
+          "shapeId": "BKK_C86487684",
+          "blockId": "C86487_0460_2_7",
+          "tripHeadsign": "Újpalota, Nyírpalota út",
+          "serviceId": "BKK_C86487AHCSZB-011",
+          "directionId": "1",
+          "bikesAllowed": false,
+          "wheelchairAccessible": true
+        },
+        "BKK_C801591198": {
+          "id": "BKK_C801591198",
+          "routeId": "BKK_0920",
+          "shapeId": "BKK_C801591198",
+          "blockId": "C80159_0920_5_13",
+          "tripHeadsign": "Kistarcsa, kórház H ► Auchan Liget",
+          "serviceId": "BKK_C80159AHCLE-0041",
+          "directionId": "0",
+          "bikesAllowed": false,
+          "wheelchairAccessible": true
+        },
+        "BKK_C852761790": {
+          "id": "BKK_C852761790",
+          "routeId": "BKK_0450",
+          "shapeId": "BKK_C852761790",
+          "blockId": "C85276_0450_8_13",
+          "tripHeadsign": "Örs vezér tere M+H",
+          "serviceId": "BKK_C85276AHCMAA-061",
+          "directionId": "1",
+          "bikesAllowed": false,
+          "wheelchairAccessible": true
+        }
+      },
+      "alerts": {
+
+      }
+    },
+    "class": "entryWithReferences"
+  }
+}
+
+It shows all the roues, although I want to exclude the following lines in case they have fetched departures in the following stops.
+Stop: BKK_F03329	Routes excluded: none
+Stop: BKK_F03328	Routes excluded: BKK_0450, BKK_0920, BKK_0921
+Stop: BKK_F03327	Routes excluded: BKK_0450
+Stop: BKK_19841		Routes excluded: none
+
+Under the heading, I want to organize departures, and the system should show all the non-cancelled departures that fit on the screen.
+
+It should have 5 columns, each line for one departure.
+
+I'll show you what title it should have (the English one with a linebreak and smaller) and what data should each column use from the json.
+
+Vonal/Line: for routeID "BKK_0450", /img/bus.png and show number according to the fetched style, for routeID "BKK_0920", /img/bus.png and show number according to the fetched style, for routeID "BKK_0921", /img/bus.png and show number according to the fetched style, for routeID "BKK_0450", /img/logo/bus.png and show number according to the fetched style, for routeID "BKK_H8", /img/suburban-railway.png and show number according to the fetched style, for routeID "volan_480", use volan.png and show number according to the fetched style.
+Célállomás/Destination: tripHeadsign of the current departure/route.
+Indul/Departs: predictedArrivalTime, or if not available, ArrivalTime in the format HH:MM
+(perc)/(min): calculates how many minutes are until departure (if predictedArrivalTime is available, show in green, if only ArrivalTime is available, show in white) in the format MM'. If the route departs now, instead of showing 0', show /img/departure.gif
+Megálló/Stop: if BKK_F03329 then /img/up.png, if BKK_F03328 or BKK_F03327 then right.png, if BKK_19841 then left.png.
+
+After a vehicle departed, delete the line it was in and fill the screen with actual information.
