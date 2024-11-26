@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BKK Megálló Információ (JSON)</title>
+    <title>BKK Megálló Információ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #1e1e2f;
+            background-color: #222;
             color: #fff;
             margin: 0;
             padding: 0;
@@ -17,37 +17,37 @@
             justify-content: center;
         }
         .container {
-            margin: 20px;
-            padding: 20px;
+            margin-top: 20px;
             width: 90%;
             max-width: 600px;
-            background: #2a2a3c;
+            background: #333;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
         .departure {
             display: flex;
             justify-content: space-between;
             padding: 10px;
-            border-bottom: 1px solid #444;
+            border-bottom: 1px solid #555;
         }
         .departure:last-child {
             border-bottom: none;
         }
         .departure:nth-child(odd) {
-            background-color: #343446;
+            background-color: #444;
         }
         .departure:nth-child(even) {
-            background-color: #3d3d50;
+            background-color: #555;
         }
         h1 {
-            margin-top: 20px;
-            color: #f9a825;
             text-align: center;
+            color: #f90;
         }
         .error {
-            color: #ff5252;
+            color: #ff6666;
             text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -57,25 +57,26 @@
         <p>Adatok betöltése...</p>
     </div>
     <script>
+        const url = "https://futar.bkk.hu/api/query/v1/ws/otp/api/where/arrivals-and-departures-for-stop?minutesBefore=0&minutesAfter=30&stopId=BKK_F03329&stopId=BKK_19841&key=ac123998-5f7a-4cfa-85b0-beceecfc41cb";
+
         async function fetchData() {
             try {
-                const response = await fetch("data.json");
+                const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error(`Hiba: ${response.status} - ${response.statusText}`);
                 }
                 const data = await response.json();
-                renderData(data.data);
+                displayData(data.data);
             } catch (error) {
                 document.getElementById('data-container').innerHTML = `<p class="error">${error.message}</p>`;
             }
         }
 
-        function renderData(data) {
+        function displayData(data) {
             const container = document.getElementById('data-container');
-            container.innerHTML = ""; // Törli a betöltési szöveget
-
+            container.innerHTML = ""; // Clear loading text
             if (!data.entry || !data.entry.arrivalsAndDepartures.length) {
-                container.innerHTML = `<p class="error">Nincs elérhető adat a megállóra.</p>`;
+                container.innerHTML = `<p class="error">Nincs elérhető adat a megadott megállókra.</p>`;
                 return;
             }
 
@@ -83,13 +84,13 @@
                 const departureElement = document.createElement('div');
                 departureElement.classList.add('departure');
 
-                const route = departure.routeShortName || "Ismeretlen járat";
-                const time = new Date(departure.predictedDepartureTime || departure.scheduledDepartureTime)
+                const routeName = departure.routeShortName || "Ismeretlen járat";
+                const departureTime = new Date(departure.predictedDepartureTime || departure.scheduledDepartureTime)
                     .toLocaleTimeString("hu-HU", { hour: '2-digit', minute: '2-digit' });
 
                 departureElement.innerHTML = `
-                    <span>${route}</span>
-                    <span>${time}</span>
+                    <span>${routeName}</span>
+                    <span>${departureTime}</span>
                 `;
                 container.appendChild(departureElement);
             });
