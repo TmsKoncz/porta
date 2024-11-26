@@ -3,7 +3,7 @@ The title should have /img/bkklogo.png on the upper left corner, "Közeli indul�
 
 I have four stops I want to include, and the website can use the following url, including the API key to fetch data from the BKK FUTÁR API.
 
-https://futar.bkk.hu/api/query/v1/ws/otp/api/where/arrivals-and-departures-for-stop?minutesBefore=2&minutesAfter=30&stopId=BKK_F03329&stopId=BKK_F03328&stopId=BKK_F03327&stopId=BKK_19841&key=68088f76-5374-4d52-9342-faea8ae0d33e
+https://futar.bkk.hu/api/query/v1/ws/otp/api/where/arrivals-and-departures-for-stop?minutesBefore=2&minutesAfter=60&stopId=BKK_F03329&stopId=BKK_F03328&stopId=BKK_F03327&stopId=BKK_19841&key=68088f76-5374-4d52-9342-faea8ae0d33e
 
 The data fetched from the URL I sent looks like this:
 {

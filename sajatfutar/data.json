@@ -1,0 +1,18 @@
+{
+    "data": {
+        "entry": {
+            "arrivalsAndDepartures": [
+                {
+                    "routeShortName": "7",
+                    "predictedDepartureTime": 1698249600000,
+                    "scheduledDepartureTime": 1698249600000
+                },
+                {
+                    "routeShortName": "133E",
+                    "predictedDepartureTime": 1698250200000,
+                    "scheduledDepartureTime": 1698250200000
+                }
+            ]
+        }
+    }
+}

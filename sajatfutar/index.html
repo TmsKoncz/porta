@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BKK Megálló Információ (JSON)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2f;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            margin: 20px;
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+            background: #2a2a3c;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+        .departure {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #444;
+        }
+        .departure:last-child {
+            border-bottom: none;
+        }
+        .departure:nth-child(odd) {
+            background-color: #343446;
+        }
+        .departure:nth-child(even) {
+            background-color: #3d3d50;
+        }
+        h1 {
+            margin-top: 20px;
+            color: #f9a825;
+            text-align: center;
+        }
+        .error {
+            color: #ff5252;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>BKK Megálló Információ</h1>
+    <div class="container" id="data-container">
+        <p>Adatok betöltése...</p>
+    </div>
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch("data.json");
+                if (!response.ok) {
+                    throw new Error(`Hiba: ${response.status} - ${response.statusText}`);
+                }
+                const data = await response.json();
+                renderData(data.data);
+            } catch (error) {
+                document.getElementById('data-container').innerHTML = `<p class="error">${error.message}</p>`;
+            }
+        }
+
+        function renderData(data) {
+            const container = document.getElementById('data-container');
+            container.innerHTML = ""; // Törli a betöltési szöveget
+
+            if (!data.entry || !data.entry.arrivalsAndDepartures.length) {
+                container.innerHTML = `<p class="error">Nincs elérhető adat a megállóra.</p>`;
+                return;
+            }
+
+            data.entry.arrivalsAndDepartures.forEach(departure => {
+                const departureElement = document.createElement('div');
+                departureElement.classList.add('departure');
+
+                const route = departure.routeShortName || "Ismeretlen járat";
+                const time = new Date(departure.predictedDepartureTime || departure.scheduledDepartureTime)
+                    .toLocaleTimeString("hu-HU", { hour: '2-digit', minute: '2-digit' });
+
+                departureElement.innerHTML = `
+                    <span>${route}</span>
+                    <span>${time}</span>
+                `;
+                container.appendChild(departureElement);
+            });
+        }
+
+        fetchData();
+    </script>
+</body>
+</html>

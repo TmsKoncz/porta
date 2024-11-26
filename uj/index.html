@@ -4,199 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Közeli indulások</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #2C2C5E; /* Deep blue background */
-            color: white;
-        }
-
-        #header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-            background-color: #2C2C5E;
-        }
-
-        #header img {
-            height: 50px;
-        }
-
-        #header h1 {
-            font-size: 48px;
-            font-weight: bold;
-            margin: 0;
-            color: white;
-        }
-
-        #header .time {
-            font-size: 36px;
-            font-weight: bold;
-            color: white;
-        }
-
-        #departures-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        #departures-table th {
-            background-color: #3E3E7E; /* Darker blue for header */
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-size: 20px;
-        }
-
-        #departures-table th small {
-            display: block;
-            font-size: 14px;
-            color: #99AABB; /* Light blue for small text */
-        }
-
-        #departures-table td {
-            background-color: #3B3B75; /* Alternating row color */
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 18px;
-        }
-
-        #departures-table tr:nth-child(even) td {
-            background-color: #32325F; /* Alternate row color */
-        }
-
-        .departure-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px;
-        }
-
-        .departure-row img {
-            height: 30px;
-            margin-right: 10px;
-        }
-
-        .departure-row .route,
-        .departure-row .time,
-        .departure-row .minutes,
-        .departure-row .arrow {
-            flex: 1;
-            text-align: center;
-        }
-
-        .departure-row .minutes.live {
-            color: #00FF00; /* Green for live data */
-        }
-
-        .departure-row .minutes.static {
-            color: #FFFFFF; /* White for static data */
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="header">
-        <div class="logo">
-            <img src="img/bkklogo.png" alt="BKK Logo">
-        </div>
+    <header>
+        <img src="img/bkklogo.png" alt="BKK Logo" class="logo">
         <h1>Közeli indulások</h1>
-        <div class="time"></div>
-    </div>
-
-    <table id="departures-table">
+        <div id="clock" class="clock"></div>
+    </header>
+    
+    <table>
         <thead>
             <tr>
-                <th>Vonal<br><small>Line</small></th>
-                <th>Célállomás<br><small>Destination</small></th>
-                <th>Indul<br><small>Departs</small></th>
-                <th>(perc)<br><small>(min)</small></th>
-                <th>Irány<br><small>Direction</small></th>
+                <th>Vonal</th>
+                <th>Célállomás</th>
+                <th>Indul</th>
+                <th>(perc)</th>
+                <th>Kijárat</th>
             </tr>
         </thead>
-        <tbody id="departures">
-            <!-- Rows will be added dynamically here -->
+        <tbody id="departure-table">
+            <!-- Departures will be loaded here -->
         </tbody>
     </table>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            async function fetchDepartures() {
-                const stops = [
-                    { id: 'BKK_F03329', arrow: '↑', excludeLines: ['9080'] }, // Suli
-                    { id: 'BKK_F03328', arrow: '→', excludeLines: ['0450', '0920', '0921'] }, // Vidámvásár ki
-                    { id: 'BKK_F03327', arrow: '→', excludeLines: ['0450'] }, // Vidámvásár be
-                    { id: 'BKK_19841', arrow: '↓', excludeLines: [] }, // HÉV
-                ];
 
-                const apiBase = 'https://futar.bkk.hu/api/query/v1/ws/otp/api/where/arrivals-and-departures-for-stop.json';
-                const apiKey = '68088f76-5374-4d52-9342-faea8ae0d33e'; // Your working API key
-
-                const departuresContainer = document.getElementById('departures');
-                departuresContainer.innerHTML = '';
-
-                try {
-                    for (const stop of stops) {
-                        const url = `${apiBase}?minutesBefore=2&minutesAfter=30&stopId=${stop.id}&key=${apiKey}`;
-                        const response = await fetch(url);
-                        const data = await response.json();
-
-                        if (data && data.data && data.data.entry && data.data.entry.arrivalsAndDepartures) {
-                            const stopDepartures = data.data.entry.arrivalsAndDepartures;
-
-                            stopDepartures.forEach(departure => {
-                                if (!stop.excludeLines.includes(departure.routeShortName)) {
-                                    const isLive = departure.predictedArrivalTime !== null;
-                                    const minutesUntil = isLive ? Math.floor((departure.predictedArrivalTime - Date.now() / 1000) / 60) : 'N/A';
-
-                                    const row = document.createElement('tr');
-
-                                    row.innerHTML = `
-                                        <td>${departure.routeShortName}</td>
-                                        <td>${departure.headsign}</td>
-                                        <td>${new Date(isLive ? departure.predictedArrivalTime * 1000 : departure.scheduledDepartureTime * 1000).toLocaleTimeString('hu-HU', { hour: '2-digit', minute: '2-digit' })}</td>
-                                        <td class="${isLive ? 'live' : 'static'}">${minutesUntil}</td>
-                                        <td>${stop.arrow}</td>
-                                    `;
-
-                                    departuresContainer.appendChild(row);
-                                }
-                            });
-                        }
-                    }
-                } catch (error) {
-                    console.error('Failed to fetch departure data:', error);
-                }
-            }
-
-            setInterval(fetchDepartures, 60000);
-            fetchDepartures();
-
-            function updateTime() {
-                const timeElement = document.querySelector('#header .time');
-                const now = new Date();
-                const formattedTime = now.toLocaleTimeString('hu-HU', { hour: '2-digit', minute: '2-digit' });
-                timeElement.textContent = formattedTime;
-            }
-
-            setInterval(updateTime, 1000);
-            updateTime();
-        });
-
-        function getIcon(routeType) {
-            switch(routeType) {
-                case 'BUS':
-                    return 'https://upload.wikimedia.org/wikipedia/commons/b/ba/BKV_busz_symbol.svg';
-                case 'REGIONAL_BUS':
-                    return 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Vol%C3%A1n_regional_bus_logo.svg/1200px-Vol%C3%A1n_regional_bus_logo.svg.png';
-                // Add other cases as needed
-                default:
-                    return '';
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
