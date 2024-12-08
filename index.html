@@ -111,6 +111,9 @@ function checkStatus() {
       } else if (status === 'TESZT') {
         alertImage.src = 'https://infotv.tmskoncz.hu/img/teszt-tuzriado.png';
         overlay.style.display = 'flex';
+      } else if (status === 'ALERT') {
+        alertImage.src = 'https://infotv.tmskoncz.hu/img/talalttargycsik2.png';
+        overlay.style.display = 'flex';
       } else {
         overlay.style.display = 'none';
       }
