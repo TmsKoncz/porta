@@ -122,6 +122,85 @@ function checkStatus() {
 
 setInterval(checkStatus, 5000);
     </script>
+  
+  
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+  import { getFirestore, doc, setDoc, onSnapshot, updateDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+
+  // Firebase konfiguráció
+  const firebaseConfig = {
+    apiKey: "AIzaSyAmlb3HFiXq18IlV--o1GOC5yofXSZjV48",
+    authDomain: "infotv-50232.firebaseapp.com",
+    projectId: "infotv-50232",
+    storageBucket: "infotv-50232.appspot.com",
+    messagingSenderId: "890415866941",
+    appId: "1:890415866941:web:10606b06957eca86d43654",
+    measurementId: "G-2V1HZ0RPJK"
+  };
+
+  // Firebase inicializálása
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Fix eszköz azonosító
+  const deviceId = "porta";
+  const deviceRef = doc(db, 'devices', deviceId);
+
+  // Eszköz információk összegyűjtése
+  function getDeviceInfo() {
+    const userAgent = navigator.userAgent;
+    const resolution = `${window.screen.width}x${window.screen.height}`;
+    
+    return {
+      os: navigator.platform,
+      browser: userAgent.split(') ').pop().split(' ')[0],
+      resolution: resolution,
+      page: window.location.href,
+      lastUpdated: new Date().toISOString()
+    };
+  }
+
+  // Adatküldés Firebase-be
+  async function sendDeviceInfo() {
+    const deviceInfo = getDeviceInfo();
+    try {
+      await setDoc(deviceRef, {
+        ...deviceInfo,
+        lastHeartbeat: serverTimestamp(),
+        status: 'online'
+      }, { merge: true });
+    } catch (error) {
+      console.error('Hiba az adatküldéskor:', error);
+    }
+  }
+
+  // Távoli vezérlés figyelése
+  onSnapshot(deviceRef, async (doc) => {
+    const deviceData = doc.data();
+    if (deviceData) {
+      // Távoli oldal frissítése
+      if (deviceData.refresh) {
+        await updateDoc(deviceRef, { refresh: false });
+        console.log('Távoli frissítés végrehajtva');
+        location.reload();
+      }
+
+      // Távoli újraindítás
+      if (deviceData.restart) {
+        await updateDoc(deviceRef, { restart: false });
+        console.log('Távoli újraindítás végrehajtva');
+        setTimeout(() => location.reload(), 1000);
+      }
+    }
+  });
+
+  // Indítás
+  sendDeviceInfo(); // Azonnali küldés
+  setInterval(sendDeviceInfo, 60000); // Szívverés percenként
+
+  console.log('Porta monitor aktív, eszköz ID: ' + deviceId);
+</script>
 </head>
 <body>
     <iframe src="https://futaragent.mihalyib.com/display_egyeniIndulasok.php?from=kt" allowfullscreen></iframe>
